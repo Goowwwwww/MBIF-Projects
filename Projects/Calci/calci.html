@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calci.css">
+</head>
+<body>
+    <div class="parent">
+        <h1>Calculator</h1>
+        <input type="text" class="display" id="display" readonly />
+        <br>
+        <button class="button" onclick="addNumber('7')">7</button>
+        <button class="button" onclick="addNumber('8')">8</button>
+        <button class="button" onclick="addNumber('9')">9</button>
+        <button class="button" onclick="deleteChar()">DEL</button>
+        <br>
+        <button class="button" onclick="addNumber('4')">4</button>
+        <button class="button" onclick="addNumber('5')">5</button>
+        <button class="button" onclick="addNumber('6')">6</button>
+        <button class="button" onclick="addNumber('+')">+</button>
+        <br>
+        <button class="button" onclick="addNumber('1')">1</button>
+        <button class="button" onclick="addNumber('2')">2</button>
+        <button class="button" onclick="addNumber('3')">3</button>
+        <button class="button" onclick="addNumber('-')">-</button>
+        <br>
+        <button class="button" onclick="addNumber('0')">0</button>
+        <button class="button" onclick="addNumber('.')">.</button>
+        <button class="button" onclick="addNumber('*')">*</button>
+        <button class="button" onclick="addNumber('/')">/</button>
+        <br>
+        <button class="button" onclick="clearDisplay()">RESET</button>
+        <button class="button" onclick="result()">=</button>
+      </div>
+    
+      <script>
+        function clearDisplay() {
+          document.getElementById("display").value = "";
+        }
+    
+        function addNumber(input) {
+          document.getElementById("display").value += input;
+        }
+    
+        function deleteChar() {
+          var lastnumber = document.getElementById("display").value;
+          document.getElementById("display").value = lastnumber.slice(0, -1);
+        }
+    
+        function result() {
+          try {
+            let result = eval(document.getElementById("display").value);
+            document.getElementById("display").value = result;
+          } catch {
+            document.getElementById("display").value = "Error";
+          }
+        }
+      </script>
+</body>
+</html>
